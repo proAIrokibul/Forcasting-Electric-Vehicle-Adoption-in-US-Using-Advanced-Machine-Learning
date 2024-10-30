@@ -1,55 +1,65 @@
-# Forcasting-Electric-Vehicle-Adoption-in-US-Using-Advanced-Machine-Learning
+# Forecasting Electric Vehicle Adoption in the U.S. Using Advanced Machine Learning
+
 ## Dataset Overview
-The dataset used in this project consists of various attributes related to electric vehicles (EVs) registered in the USA. It contains a total of **205,439** entries, with features including:
+The dataset utilized in this project comprises a comprehensive collection of attributes related to electric vehicles (EVs) registered in the United States. With a total of **205,439** entries, the dataset features the following key attributes:
 
-- **VIN**: Unique identifier for each vehicle
-- **County, City, State**: Geographic location of registration
-- **Model Year**: Year the vehicle model was manufactured
-- **Make and Model**: Manufacturer and model of the vehicle
-- **Electric Vehicle Type**: Classification of the EV
-- **Clean Alternative Fuel Vehicle (CAFV) Eligibility**: Indicates eligibility for alternative fuel vehicle programs
-- **Electric Range**: Maximum distance the vehicle can travel on a single charge
-- **Base MSRP**: Manufacturer's suggested retail price, which is the target variable for prediction
-- **Legislative District, Electric Utility, 2020 Census Tract**: Additional contextual information
+- **VIN**: A unique identifier assigned to each vehicle, ensuring precise tracking and differentiation.
+- **County, City, State**: Geographic identifiers indicating the location of vehicle registration.
+- **Model Year**: The year in which the vehicle model was manufactured, providing context for technological advancements and market trends.
+- **Make and Model**: Details regarding the manufacturer and specific model of the vehicle, essential for understanding brand influence on pricing.
+- **Electric Vehicle Type**: Classification of the EV, which may influence consumer preferences and regulatory incentives.
+- **Clean Alternative Fuel Vehicle (CAFV) Eligibility**: A binary indicator that signifies eligibility for programs supporting alternative fuel vehicles, impacting purchasing decisions.
+- **Electric Range**: The maximum distance the vehicle can travel on a single charge, a critical factor for consumers when considering EVs.
+- **Base MSRP**: The manufacturer's suggested retail price, serving as the target variable for prediction and essential for understanding market pricing.
+- **Legislative District, Electric Utility, 2020 Census Tract**: Additional contextual variables that may impact EV adoption rates and pricing strategies.
 
-The dataset was cleaned and preprocessed to handle missing values, categorical variables, and data types, ensuring its readiness for analysis and modeling.
+Before analysis and modeling, the dataset underwent a thorough cleaning and preprocessing phase to address missing values, manage categorical variables, and ensure appropriate data types, thus optimizing it for further analysis.
 
 ## Methodology
-The project follows a systematic approach to model the relationship between the features of electric vehicles and their base MSRP. The methodology is outlined as follows:
+The project adopts a structured approach to explore the relationship between electric vehicle attributes and their Base MSRP. The methodology includes the following steps:
 
 1. **Data Preprocessing**:
-   - Handled missing values by excluding rows with significant gaps in critical features.
-   - Categorical variables were transformed using **OneHotEncoding** to convert them into numerical format, facilitating the modeling process.
-   - The dataset was split into training and testing sets to evaluate the performance of the models effectively.
+   - **Handling Missing Values**: Rows with significant gaps in critical features were excluded to maintain data integrity.
+   - **Encoding Categorical Variables**: Categorical variables were transformed using **OneHotEncoding**, converting them into a numerical format suitable for modeling.
+   - **Data Splitting**: The dataset was partitioned into training and testing sets to enable effective performance evaluation of the selected models.
 
 2. **Model Selection**:
-   Three regression algorithms were chosen for this analysis:
-   - **Linear Regression**: A simple model to establish a baseline for performance.
-   - **Random Forest Regressor**: An ensemble method that improves prediction accuracy through multiple decision trees.
-   - **Gradient Boosting Regressor**: Another ensemble technique that builds models sequentially to optimize predictive performance.
+   Three regression algorithms were selected for this analysis:
+   - **Linear Regression**: A straightforward model employed as a baseline for performance comparison, providing a fundamental understanding of the data.
+   - **Random Forest Regressor**: An ensemble method leveraging multiple decision trees to enhance prediction accuracy by capturing complex relationships within the data.
+   - **Gradient Boosting Regressor**: Another ensemble technique that constructs models sequentially to optimize predictive performance, focusing on errors made by prior models.
 
 3. **Model Evaluation**:
-   Each model was assessed using two key metrics:
-   - **Mean Squared Error (MSE)**: Measures the average squared difference between predicted and actual values. Lower values indicate better performance.
-   - **R-squared**: Indicates the proportion of variance in the target variable that can be explained by the features. Values closer to 1 signify a better fit.
+   The performance of each model was assessed using two critical metrics:
+   - **Mean Squared Error (MSE)**: This metric quantifies the average squared difference between predicted and actual values, with lower values indicating superior performance.
+   - **R-squared (R²)**: This statistic reflects the proportion of variance in the target variable explained by the features, with values closer to 1 indicating a better model fit.
 
 ## Model Performance
-The performance of the models is summarized as follows:
+The results of the model evaluations are summarized as follows:
 
-### 1. Linear Regression
-- **Mean Squared Error (MSE):** 57,811,216.70
-- **R-squared:** 0.0023  
-Despite being a fundamental regression approach, this model struggled to accurately predict the Base MSRP, indicating that the linear relationship assumption may not hold for this dataset.
+### Linear Regression
+- **Mean Absolute Error (MAE)**: 1832.53  
+- **Mean Squared Error (MSE)**: 57,811,216.70  
+- **Root Mean Squared Error (RMSE)**: 7603.37  
+- **R-squared (R²)**: 0.0023  
 
-### 2. Random Forest Regressor
-- **Mean Squared Error (MSE):** 791,551.15
-- **R-squared:** 0.9863  
-This model excelled in capturing complex relationships within the data, providing accurate predictions and demonstrating its robustness against overfitting.
+Despite its foundational nature, the linear regression model struggled to accurately predict Base MSRP, reflecting that the assumption of a linear relationship may not be appropriate for this dataset.
 
-### 3. Gradient Boosting Regressor
-- **Mean Squared Error (MSE):** 6,647,668.83
-- **R-squared:** 0.8853  
-While slightly less accurate than the Random Forest Regressor, the Gradient Boosting model still performed admirably, balancing prediction accuracy and interpretability.
+### Random Forest Regressor
+- **Mean Absolute Error (MAE)**: 20.28  
+- **Mean Squared Error (MSE)**: 791,551.15  
+- **Root Mean Squared Error (RMSE)**: 889.69  
+- **R-squared (R²)**: 0.9863  
+
+The Random Forest Regressor excelled in capturing intricate relationships within the dataset, providing accurate predictions and demonstrating robustness against overfitting.
+
+### Gradient Boosting Regressor
+- **Mean Absolute Error (MAE)**: 519.94  
+- **Mean Squared Error (MSE)**: 6,647,668.83  
+- **Root Mean Squared Error (RMSE)**: 2578.31  
+- **R-squared (R²)**: 0.8853  
+
+Although slightly less accurate than the Random Forest Regressor, the Gradient Boosting model still performed admirably, effectively balancing prediction accuracy with interpretability.
 
 ## Conclusion
-The analysis underscores the potential of machine learning models in predicting the Base MSRP of electric vehicles based on various features. The Random Forest Regressor emerged as the most effective model, showcasing its ability to generalize well to new data. Future work may explore further feature engineering, hyperparameter tuning, and model validation techniques to enhance predictive performance.
+The analysis highlights the significant potential of advanced machine learning models in predicting the Base MSRP of electric vehicles based on various influential features. Among the models tested, the Random Forest Regressor emerged as the most effective, showcasing its capability to generalize well to new data. Future work may involve exploring further feature engineering, hyperparameter tuning, and implementing robust model validation techniques to enhance predictive performance. By doing so, this analysis could contribute to better understanding consumer behavior and market dynamics in the rapidly evolving electric vehicle sector.
